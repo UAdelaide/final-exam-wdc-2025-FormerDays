@@ -134,7 +134,7 @@
       }
     }).mount('#app');
 
-    //14: Logout functionality
+    // 14: Logout functionality
     document.getElementById('logoutButton').addEventListener('click', async function () {
       const res = await fetch('/api/logout', {
         method: 'POST',
@@ -148,7 +148,7 @@
       }
     });
 
-    //15: Lode the name of the dog
+    // 15: Lode the name of the dog
     async function loadDogs() {
         const res = await fetch('/api/mydogs', { credentials: 'include' });
         const dogs = await res.json();
@@ -161,7 +161,7 @@
           select.appendChild(option);
         });
     }
-    // 15
+    // 15: Load dogs when the page is ready
     window.addEventListener('load', loadDogs);
   </script>
 
