@@ -61,7 +61,7 @@ app.get('/api/mydogs', (req, res) => {
         return res.status(401).json({ error: 'You must logged in' });
     }
 
-    const ownerId = req.session.user.user.id;
+    const ownerId = req.session.user.user_id;
     const [rows] = await db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
     res.json(rows);
 });
