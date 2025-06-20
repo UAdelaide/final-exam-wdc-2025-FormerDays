@@ -58,7 +58,7 @@ async function startServer() {
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
         const [rows] = await connection.query(`
-            SELECT wr.request_id, d.name AS dog_name, u.username AS owner_username, wr.datetime, wr.duration, wr.location
+            SELECT wr.request_id, d.name AS dog_name, wr.re, wr.duration, wr.location, u.username AS owner_username
             FROM WalkRequests wr
             JOIN Dogs d ON wr.dog_id = d.id
             JOIN Users u ON d.owner_id = u.user_id
