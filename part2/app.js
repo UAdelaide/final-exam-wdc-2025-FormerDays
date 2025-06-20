@@ -21,7 +21,7 @@ module.exports = app;
 // 13: Identify the user;s role and return it
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
-    const [rows] = await debug.quiry(
+    const [rows] = await db.quiry(
         'SELECT * FROM users WHERE username = ? AND password = ?',
         [username, password]
     );
