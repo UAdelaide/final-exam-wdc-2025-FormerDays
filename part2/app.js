@@ -50,7 +50,7 @@ app.post('/api/login', async (req, res) => {
 // 14: log out
 app.post('/api/logout', (req, res) => {
     req.session.destroy(() => {
-        res.clear
+        res.clearCookie('connect.sid'); // Clear the session cookie
         res.json({ message: 'Logged out successfully' });
     });
 });
