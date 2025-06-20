@@ -4,5 +4,7 @@ const app = express();
 const PORT = 3000;
 
 const dbConfig = {
-    host: 'localhost
+    host: 'localhost',
+    user: 'root',
+    password: '123456', 
 }
