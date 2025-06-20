@@ -55,4 +55,18 @@ async function startServer() {
     }
 }
 
-app.get('/api/walkrequests', async (req, res) => {
+app.get('/api/walkrequests/open', async (req, res) => {
+    try {
+        const [rows] = await connection.query(`
+            SELECT wr.id, d.name AS dog_name, u.username AS owner_username, wr.datetime, wr.duration, wr.location
+            FROM WalkRequests wr
+            JOIN Dogs d ON wr.dog_id = d.id
+            JOIN Users u ON d.owner_id = u.user_id
+            WHERE wr.status = 'open'
+        `);
+        res.json(rows);
+    } catch (err) {
+        console.error('Error fetching open walk requests:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
