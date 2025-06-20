@@ -17,7 +17,7 @@ app.use(session({
 }));
 
 // Database connection
-const
+const db = require('./models/db');
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
