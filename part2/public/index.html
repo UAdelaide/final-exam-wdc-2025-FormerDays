@@ -31,8 +31,9 @@
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      const res = 
+      const res = await fetch('/api/login', {
         method: 'POST',
+        headers
         body: formData
       });
       if (response.ok) {
