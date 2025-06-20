@@ -82,6 +82,7 @@ async function startServer() {
                 LEFT JOIN WalkRequests wr ON wr.accepted_walker_id = u.user_id
                 LEFT JOIN Ratings r ON r.walker_id = u.user_id
                 WHERE u.role = 'walker'
+                GROUP BY u.username
             `);
             res.json(rows);
         } catch (err) {
@@ -89,4 +90,5 @@ async function startServer() {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     });
+    app
 }
