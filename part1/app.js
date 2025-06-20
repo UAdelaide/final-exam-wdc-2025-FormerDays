@@ -12,12 +12,11 @@ const dbConfig = {
 
 async function insertTestData(connection) {
     await connection,query(`INSERT INTO Users (username, email, password_hash, role)
-VALUES
-  ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+VALUES    ('alice123', 'alice@example.com', 'hashed123', 'owner'),
   ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
   ('carol123', 'carol@example.com', 'hashed789', 'owner'),
   ('puranowner', 'po@example.com', 'hashedpo', 'owner'),
-  ('puranwalker', 'pw@example.com', 'hashedpw', 'walker');)
+  ('puranwalker', 'pw@example.com', 'hashedpw', 'walker');`)
 }
 
 
