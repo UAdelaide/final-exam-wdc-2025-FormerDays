@@ -28,8 +28,10 @@
     }).mount('#app');
     document.getElementById('loginForm').addEventListener('submit', async function (e) {
       e.preventDefault();
-      const username = new FormData(this);
-      const password = await fetch('/api/login', {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const res = 
         method: 'POST',
         body: formData
       });
