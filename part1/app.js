@@ -73,11 +73,7 @@ async function startServer() {
     app.get('/api/walkers/summary', async (req, res) => {
         try {
             const [rows] = await connection.query(`
-                SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
-                FROM WalkRequests wr
-                JOIN Dogs d ON wr.dog_id = d.dog_id
-                JOIN Users u ON d.owner_id = u.user_id
-                WHERE wr.status = 'accepted'
+                SELECT u.username AS walker_username, COUNT(wr.request_id) AS total_walks,
             `);
             res.json(rows);
         } catch (err) {
