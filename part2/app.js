@@ -23,11 +23,10 @@ module.exports = app;
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
     try {
-
-    const [rows] = await db.quiry(
-        'SELECT * FROM users WHERE username = ? AND password = ?',
-        [username, password]
-    );
+        const [rows] = await db.quiry(
+            'SELECT * FROM users WHERE username = ? AND password = ?',
+            [username, password]
+        ;
     if (rows.length > 0) {
         req.session.user = rows[0];
         res.json({ role : rows[0].role });
