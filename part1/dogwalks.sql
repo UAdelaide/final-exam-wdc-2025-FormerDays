@@ -53,3 +53,27 @@ CREATE TABLE WalkRatings (
     FOREIGN KEY (owner_id) REFERENCES Users(user_id),
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
 );
+
+INSERT INTO Users (username, email, password_hash, role)
+VALUES
+  ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+  ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+  ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+  ('daveowner', 'dave@example.com', 'hashed321', 'owner'),
+  ('emilywalker', 'emily@example.com', 'hashed654', 'walker');
+
+INSERT INTO Dogs (name, size, owner_id)
+VALUES
+  ('Max', 'medium', (SELECT id FROM Users WHERE username='alice123')),
+  ('Bella', 'small', (SELECT id FROM Users WHERE username='carol123')),
+  ('Rocky', 'large', (SELECT id FROM Users WHERE username='daveowner')),
+  ('Luna', 'medium', (SELECT id FROM Users WHERE username='alice123')),
+  ('Daisy', 'small', (SELECT id FROM Users WHERE username='carol123'));
+
+INSERT INTO WalkRequests (dog_id, datetime, duration, location, status)
+VALUES
+  ((SELECT id FROM Dogs WHERE name='Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+  ((SELECT id FROM Dogs WHERE name='Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+  ((SELECT id FROM Dogs WHERE name='Rocky'), '2025-06-10 10:00:00', 60, 'Central Park', 'open'),
+  ((SELECT id FROM Dogs WHERE name='Luna'), '2025-06-11 07:30:00', 20, 'Maple Street', 'open'),
+  ((SELECT id FROM Dogs WHERE name='Daisy'), '2025-06-11 09:00:00', 40, 'Oak Avenue', 'open');
