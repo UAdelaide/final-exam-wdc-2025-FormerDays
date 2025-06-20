@@ -62,8 +62,11 @@ app.get('/api/mydogs', (req, res) => {
     }
 
     const ownerId = req.session.user.user_id;
-    const [rows] = await db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
-    res.json(rows);
+    try {
+        const [rows] = db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
+        res.json(rows);
+    }
+
 });
 
 // Export the app instead of listening here
