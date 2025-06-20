@@ -39,7 +39,7 @@ app.post('/api/login', async (req, res) => {
             req.session.user = rows[0];
             res.json({ role : rows[0].role });
         } else {
-            res.status(401).json({ message: 'Invalid username or password' });
+            res.status(401).json({ message: 'Invalid username or password_hash' });
         }
     } catch (err) {
         console.error('Log in error', err);
