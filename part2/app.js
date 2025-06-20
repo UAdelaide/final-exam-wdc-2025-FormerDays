@@ -26,11 +26,12 @@ app.post('/api/login', async (req, res) => {
         const [rows] = await db.quiry(
             'SELECT * FROM users WHERE username = ? AND password = ?',
             [username, password]
-        ;
-    if (rows.length > 0) {
-        req.session.user = rows[0];
-        res.json({ role : rows[0].role });
-    } else {
-        res.status(401).json({ message: 'Invalid username or password' });
-    }
+        );
+
+        if (rows.length > 0) {
+            req.session.user = rows[0];
+            res.json({ role : rows[0].role });
+        } else {
+            res.status(401).json({ message: 'Invalid username or password' });
+        }
 });
