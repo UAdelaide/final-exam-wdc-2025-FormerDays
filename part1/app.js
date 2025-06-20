@@ -1,2 +1,4 @@
 const express = require('express');
-const mysql
+const mysql = require('mysql2/promise');
+const app = express();
+const PORT
