@@ -35,5 +35,6 @@ async function insertTestData(connection) {
 }
 
 async function startServer() {
+    const connection = await mysql.createConnection(dbConfig);
     
 }
