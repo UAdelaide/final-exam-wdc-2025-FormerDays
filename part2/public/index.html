@@ -39,6 +39,7 @@
         credentials: 'include',
         body: JSON.stringify({ username, password })
       });
+      
       if (res.ok) {
         const data = await res.json();
         if (data.role === 'owner') {
