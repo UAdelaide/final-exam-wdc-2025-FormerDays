@@ -30,13 +30,7 @@
       },
       methods: {
         async getDog() {
-          try {
-            const response = await fetch(this.dogImage);
-            const data = await response.json();
-            this.dogImage = data.message;
-          } catch (error) {
-            console.error('Error fetching dog image:', error);
-          }
+          as
         }
       },
       mounted() {
