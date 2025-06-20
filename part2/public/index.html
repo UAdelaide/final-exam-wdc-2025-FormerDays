@@ -40,7 +40,10 @@
         body: JSON.stringify({ username, password })
       });
       if (response.ok) {
-        window.location.href = '/dashboard.html';
+        const data = await res.json();
+        if (data.success) {
+          alert('Login successful! Redirecting...');
+          window.location
       } else {
         alert('Login failed. Please try again.');
       }
