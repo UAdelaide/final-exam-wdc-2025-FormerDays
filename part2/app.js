@@ -9,14 +9,14 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-// Session configuration
+// 13: Session configuration
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: false,
 }));
 
-// Database connection
+// 13: Database connection
 const db = require('./models/db');
 
 // Routes
