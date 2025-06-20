@@ -38,5 +38,7 @@ async function startServer() {
     const connection = await mysql.createConnection(dbConfig);
     console.log('Connected to MySQL database');
 
-    s
+    await insertTestData(connection);
+
+    app.get()
 }
