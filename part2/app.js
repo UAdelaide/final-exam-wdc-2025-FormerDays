@@ -47,6 +47,7 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-
+// 14: log out
+app.post
 // Export the app instead of listening here
 module.exports = app;
