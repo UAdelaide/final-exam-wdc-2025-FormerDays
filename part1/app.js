@@ -53,7 +53,7 @@ async function startServer() {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     }
-})
+});
 
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
