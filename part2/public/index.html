@@ -42,7 +42,7 @@
         body: JSON.stringify({ username, password })
       });
 
-      // 
+      // Jump to the corresponding interface based 
       if (res.ok) {
         const data = await res.json();
         if (data.role === 'owner') {
