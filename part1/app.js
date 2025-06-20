@@ -70,7 +70,7 @@ async function startServer() {
         }
     });
 
-    app.get('/api/walkrequests/accepted', async (req, res) => {
+    app.get('/api/walkers/summary', async (req, res) => {
         try {
             const [rows] = await connection.query(`
                 SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
