@@ -78,6 +78,8 @@ async function startServer() {
                 AVG(r.rating) AS average_rating,
                 COUNT(CASE WHEN wr.status = 'accepted' THEN 1 END) AS accepted_walks,
                 COUNT(CASE WHEN wr.status = 'rejected' THEN 1 END) AS rejected_walks
+                FROM Users u
+                LEFT JOIN WalkRequests wr ON WR.user_id = wr.walker_id
             `);
             res.json(rows);
         } catch (err) {
