@@ -10,4 +10,14 @@ const dbConfig = {
     database: 'dogwalks'
 }
 
-async function insert
+async function insertTestData(connection) {
+    const [rows] = await connection.execute('SELECT COUNT(*) AS count FROM walks');
+    if (rows[0].count === 0) {
+        await connection.execute(`
+            INSERT INTO walks (name, distance, duration) VALUES
+            ('Morning Walk', 5, 30),
+            ('Evening Walk', 3, 20),
+            ('Night Walk', 2, 15)
+        `);
+    }
+}
