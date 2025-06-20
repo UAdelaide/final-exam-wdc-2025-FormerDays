@@ -66,9 +66,9 @@ INSERT INTO Dogs (name, size, owner_id)
 VALUES
   ('Max', 'medium', (SELECT id FROM Users WHERE username='alice123')),
   ('Bella', 'small', (SELECT id FROM Users WHERE username='carol123')),
-  ('large', 'large', (SELECT id FROM Users WHERE username='puranowner')),
-  ('Luna', 'medium', (SELECT id FROM Users WHERE username='alice123')),
-  ('Daisy', 'small', (SELECT id FROM Users WHERE username='carol123'));
+  ('largedog', 'large', (SELECT id FROM Users WHERE username='puranowner')),
+  ('mediumdog', 'medium', (SELECT id FROM Users WHERE username='alice123')),
+  ('smalldog', 'small', (SELECT id FROM Users WHERE username='carol123'));
 
 INSERT INTO WalkRequests (dog_id, datetime, duration, location, status)
 VALUES
