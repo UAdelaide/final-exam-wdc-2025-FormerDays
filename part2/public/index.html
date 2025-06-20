@@ -35,8 +35,7 @@
     }).mount('#app');
 
     // 13: Identify the input username and password
-    document.getElementById('loginButton').addEventListener('submit', async function (e) {
-      e.preventDefault();
+    document.getElementById('loginButton').addEventListener('click', async function () {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
