@@ -56,7 +56,21 @@ app.post('/api/logout', (req, res) => {
 });
 
 // 15: Choose your dog
-app.get
+app.get('/api/mydogs', (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+
+    const userId = req.session.user.id;
+    db.query('SELECT * FROM Dogs WHERE owner_id = ?', [userId])
+        .then(([rows]) => {
+            res.json(rows);
+        })
+        .catch(err => {
+            console.error('Error fetching dogs:', err);
+            res.status(500).json({ message: 'Internal server error' });
+        });
+});
 
 // Export the app instead of listening here
 module.exports = app;
