@@ -152,6 +152,7 @@
     async function loadDogs() {
         const res = await fetch('/api/mydogs', { credentials: 'include' });
         const dogs = await res.json();
+        
         const dogSelect = document.getElementById('dog-select
     }
   </script>
