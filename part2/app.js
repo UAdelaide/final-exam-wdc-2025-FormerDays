@@ -62,7 +62,7 @@ app.get('/api/mydogs', (req, res) => {
     }
 
     const ownerId = req.session.user.user.id;
-    const [rows] = await db.query('SELECT dog_idFROM Dogs WHERE owner_id = ?', [ownerId]);
+    const [rows] = await db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
     res.json(rows);
 });
 
