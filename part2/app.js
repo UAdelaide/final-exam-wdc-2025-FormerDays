@@ -31,7 +31,7 @@ app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
     try {
         const [rows] = await db.query(
-            'SELECT * FROM users WHERE username = ? AND password = ?',
+            'SELECT * FROM users WHERE username = ? AND password_hash = ?',
             [username, password]
         );
 
