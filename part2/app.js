@@ -14,6 +14,10 @@ app.use(session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: false,
+}));
+
+// Database connection
+const
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
