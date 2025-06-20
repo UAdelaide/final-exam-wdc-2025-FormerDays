@@ -58,7 +58,7 @@ app.post('/api/logout', (req, res) => {
 // 15: Choose your dog
 app.get('/api/mydogs', (req, res) => {
     if (!req.session.user) {
-        return res.status(401).json({ error: 'Unauthorized' });
+        return res.status(401).json({ error: 'You must logged in' });
     }
 
     const userId = req.session.user.id;
