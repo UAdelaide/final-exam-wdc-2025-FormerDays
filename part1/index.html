@@ -34,7 +34,8 @@
       methods: {
         async getDog() {
           async getDog(){
-            const res = awaithttps://dog.ceo/api/breeds/image/random
+            const res = await fetch('https://dog.ceo/api/breeds/image/random');
+            const data = await res.json();
           }
         }
       },
