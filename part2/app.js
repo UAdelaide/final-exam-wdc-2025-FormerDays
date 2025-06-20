@@ -50,9 +50,7 @@ app.post('/api/login', async (req, res) => {
 // 14: log out
 app.post('/api/logout', (req, res) => {
     req.session.destroy(() => {
-        if (err) {
-            return res.status(500).json({ message: 'Failed to log out' });
-        }
+        res.clear
         res.json({ message: 'Logged out successfully' });
     });
 });
