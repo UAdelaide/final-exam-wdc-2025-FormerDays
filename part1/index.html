@@ -22,7 +22,27 @@
   </div>
   <script>
     const { createApp } = Vue;
-    crea
+    createApp({
+      data() {
+        return {
+          dogImage: 'https://dog.ceo/api/breeds/image/random'
+        }
+      },
+      methods: {
+        async getDog() {
+          try {
+            const response = await fetch(this.dogImage);
+            const data = await response.json();
+            this.dogImage = data.message;
+          } catch (error) {
+            console.error('Error fetching dog image:', error);
+          }
+        }
+      },
+      mounted() {
+        this.getDog();
+      }
+    }).mount('#app');
   </script>
 </body>
 </html>
