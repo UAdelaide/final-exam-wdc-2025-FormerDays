@@ -14,8 +14,6 @@ async function startServer() {
     const connection = await mysql.createConnection(dbConfig);
     console.log('Connected to MySQL database');
 
-    await insertTestData(connection);
-
     app.get('/api/dogs', async (req, res) => {
         try {
             const [rows] = await connection.query(`
