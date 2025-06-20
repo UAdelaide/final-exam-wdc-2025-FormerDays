@@ -54,3 +54,5 @@ async function startServer() {
         }
     }
 }
+
+app.get('/api/walkrequests', async (req, res) => {
