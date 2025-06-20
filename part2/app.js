@@ -19,6 +19,6 @@ app.use('/api/users', userRoutes);
 module.exports = app;
 
 app.post('/api/login', async (req, res) => {
-    const
+    const { username, password } = req.body;
+    const 
 }
-    c
