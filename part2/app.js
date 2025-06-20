@@ -30,7 +30,7 @@ app.use('/api/users', userRoutes);
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
     try {
-        const [rows] = await db.quiry(
+        const [rows] = await db.query(
             'SELECT * FROM users WHERE username = ? AND password = ?',
             [username, password]
         );
