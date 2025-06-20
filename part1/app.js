@@ -79,7 +79,9 @@ async function startServer() {
                 COUNT(CASE WHEN wr.status = 'accepted' THEN 1 END) AS accepted_walks,
                 COUNT(CASE WHEN wr.status = 'rejected' THEN 1 END) AS rejected_walks
                 FROM Users u
-                LEFT JOIN WalkRequests wr ON wr.accepted_walker_id = u.walker_id
+                LEFT JOIN WalkRequests wr ON wr.accepted_walker_id = u.user_id
+                LEFT JOIN Ratings r ON r.walk_request_id = wr.request_id
+                WHERE u.role = 'walker'
             `);
             res.json(rows);
         } catch (err) {
