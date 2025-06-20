@@ -34,4 +34,6 @@ async function insertTestData(connection) {
         ((SELECT id FROM Dogs WHERE name='smalldog'), '2025-06-12 14:00:00', 10, 'SAvenue', 'rejected');`);
 }
 
-async function start
+async function startServer() {
+    
+}
