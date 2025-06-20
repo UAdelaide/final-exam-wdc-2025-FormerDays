@@ -76,7 +76,7 @@ async function startServer() {
                 SELECT u.username AS walker_username,
                 COUNT(r.rating_id) AS total_ratings,
                 AVG(r.rating) AS average_rating,
-                COUNT(CASE WHEN wr.status = 'accepted' THEN 1 END) AS accepted_walks,
+                COUNT(CASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks,
                 COUNT(CASE WHEN wr.status = 'rejected' THEN 1 END) AS rejected_walks
                 FROM Users u
                 LEFT JOIN WalkRequests wr ON wr.accepted_walker_id = u.user_id
