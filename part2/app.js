@@ -34,4 +34,7 @@ app.post('/api/login', async (req, res) => {
         } else {
             res.status(401).json({ message: 'Invalid username or password' });
         }
+    } catch (err) {
+        
+    }
 });
