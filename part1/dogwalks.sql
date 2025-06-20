@@ -76,4 +76,4 @@ VALUES
   ((SELECT id FROM Dogs WHERE name='Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
   ((SELECT id FROM Dogs WHERE name='largedog'), '2025-06-10 10:00:00', 60, 'Central Park', 'open'),
   ((SELECT id FROM Dogs WHERE name='mediumdog'), '2025-06-11 07:30:00', 20, 'Maple Street', 'open'),
-  ((SELECT id FROM Dogs WHERE name='smalldog'), '2025-06-11 09:00:00', 40, 'Oak Avenue', 'open');
+  ((SELECT id FROM Dogs WHERE name='smalldog'), '2025-06-12 09:00:00', 40, 'Oak Avenue', 'open');
