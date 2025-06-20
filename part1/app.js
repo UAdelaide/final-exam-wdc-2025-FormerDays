@@ -80,7 +80,7 @@ async function startServer() {
                 COUNT(CASE WHEN wr.status = 'rejected' THEN 1 END) AS rejected_walks
                 FROM Users u
                 LEFT JOIN WalkRequests wr ON wr.accepted_walker_id = u.user_id
-                LEFT JOIN Ratings r ON r.walker_id = u.user_id
+                LEFT JOIN WalkRatings r ON r.walker_id = u.user_id
                 WHERE u.role = 'walker'
                 GROUP BY u.username
             `);
