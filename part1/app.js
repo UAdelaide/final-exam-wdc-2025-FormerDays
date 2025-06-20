@@ -40,5 +40,5 @@ async function startServer() {
 
     await insertTestData(connection);
 
-    app.get()
+    app.get('/api/dogs', async (req, res) => {
 }
