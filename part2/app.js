@@ -18,7 +18,7 @@ app.use('/api/users', userRoutes);
 // Export the app instead of listening here
 module.exports = app;
 
-// 13: 
+// 13: Identify the user;s role and return it
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
     const [rows] = await debug.quiry(
