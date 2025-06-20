@@ -63,14 +63,7 @@ app.get('/api/mydogs', (req, res) => {
 
     const ownerId = req.session.user.user.id;
     const [rows] = await db.query('SELECT * FROM Dogs WHERE owner_id = ?', [ownerId]);
-    db.query('SELECT * FROM Dogs WHERE owner_id = ?', [userId])
-        .then(([rows]) => {
-            res.json(rows);
-        })
-        .catch(err => {
-            console.error('Error fetching dogs:', err);
-            res.status(500).json({ message: 'Internal server error' });
-        });
+    res.json(rows);
 });
 
 // Export the app instead of listening here
