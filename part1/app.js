@@ -33,3 +33,5 @@ async function insertTestData(connection) {
         ((SELECT id FROM Dogs WHERE name='mediumdog'), '2025-06-11 11:30:00', 40, 'MStreet', 'accepted'),
         ((SELECT id FROM Dogs WHERE name='smalldog'), '2025-06-12 14:00:00', 10, 'SAvenue', 'rejected');`);
 }
+
+async function start
