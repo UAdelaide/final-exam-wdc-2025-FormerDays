@@ -35,6 +35,7 @@ app.post('/api/login', async (req, res) => {
             res.status(401).json({ message: 'Invalid username or password' });
         }
     } catch (err) {
-        console.error('Log in error')
+        console.error('Log in error', err);
+        res.status(500).json({ message: 'Internal server error' });
     }
 });
