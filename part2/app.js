@@ -16,9 +16,6 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-// Export the app instead of listening here
-module.exports = app;
-
 // 13: Identify the user;s role and return it
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
@@ -39,3 +36,6 @@ app.post('/api/login', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
+// Export the app instead of listening here
+module.exports = app;
