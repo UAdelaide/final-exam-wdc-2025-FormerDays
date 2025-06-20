@@ -43,7 +43,8 @@ async function startServer() {
     app.get('/api/dogs', async (req, res) => {
         try {
             const [rows] = await connection.query('
-                SELECT d.name AS dog_name, d.size, u.username AS  FROM Dogs
+                SELECT d.name AS dog_name, d.size, u.username AS owner_username
+                FROM Dogs d
                 ');
             res.json(rows);
         } catch (err) {
