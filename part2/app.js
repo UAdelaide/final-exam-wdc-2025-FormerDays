@@ -48,6 +48,14 @@ app.post('/api/login', async (req, res) => {
 });
 
 // 14: log out
-app.post
+app.post('/api/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).json({ message: 'Failed to log out' });
+        }
+        res.json({ message: 'Logged out successfully' });
+    });
+});
+
 // Export the app instead of listening here
 module.exports = app;
