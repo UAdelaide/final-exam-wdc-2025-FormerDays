@@ -33,8 +33,11 @@
 
       const res = await fetch('/api/login', {
         method: 'POST',
-        headers
-        body: formData
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({ username, password })
       });
       if (response.ok) {
         window.location.href = '/dashboard.html';
