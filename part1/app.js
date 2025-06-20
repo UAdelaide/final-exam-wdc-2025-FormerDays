@@ -21,10 +21,10 @@ async function insertTestData(connection) {
     await connection.query(`INSERT INTO Dogs (name, size, owner_id)
         VALUES
         ('Max', 'medium', (SELECT user_id FROM Users WHERE username='alice123')),
-        ('Bella', 'small', (SELECT id FROM Users WHERE username='carol123')),
-        ('largedog', 'large', (SELECT id FROM Users WHERE username='puranowner')),
-        ('mediumdog', 'medium', (SELECT id FROM Users WHERE username='carol123')),
-        ('smalldog', 'small', (SELECT id FROM Users WHERE username='alice123'));`);
+        ('Bella', 'small', (SELECT user_id FROM Users WHERE username='carol123')),
+        ('largedog', 'large', (SELECT user_id FROM Users WHERE username='puranowner')),
+        ('mediumdog', 'medium', (SELECT user_id FROM Users WHERE username='carol123')),
+        ('smalldog', 'small', (SELECT user_id FROM Users WHERE username='alice123'));`);
     await connection.query(`INSERT INTO WalkRequests (dog_id, datetime, duration, location, status)
         VALUES
         ((SELECT dog_id FROM Dogs WHERE name='Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
