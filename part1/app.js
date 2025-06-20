@@ -73,7 +73,7 @@ async function startServer() {
     app.get('/api/walkers/summary', async (req, res) => {
         try {
             const [rows] = await connection.query(`
-                SELECT u.username AS walker_username, COUNT(wr.request_id) AS total_walks,
+                SELECT u.username AS walker_username, COUNT(r.rating_id) AS total_walks,
             `);
             res.json(rows);
         } catch (err) {
