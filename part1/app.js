@@ -42,7 +42,9 @@ async function startServer() {
 
     app.get('/api/dogs', async (req, res) => {
         try {
-            const [rows] = await connection.query('SELECT * FROM Dogs');
+            const [rows] = await connection.query('
+                SELECT  FROM Dogs
+                ');
             res.json(rows);
         } catch (err) {
             console.error('Error fetching dogs:', err);
