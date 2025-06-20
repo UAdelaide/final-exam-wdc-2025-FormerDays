@@ -18,19 +18,19 @@ async function insertTestData(connection) {
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('puranowner', 'po@example.com', 'hashedpo', 'owner'),
         ('puranwalker', 'pw@example.com', 'hashedpw', 'walker');`);
-    await connection,query(``);
+    await connection,query(`INSERT INTO Dogs (name, size, owner_id)
+        VALUES
+        ('Max', 'medium', (SELECT id FROM Users WHERE username='alice123')),
+        ('Bella', 'small', (SELECT id FROM Users WHERE username='carol123')),
+        ('largedog', 'large', (SELECT id FROM Users WHERE username='puranowner')),
+        ('mediumdog', 'medium', (SELECT id FROM Users WHERE username='carol123')),
+        ('smalldog', 'small', (SELECT id FROM Users WHERE username='alice123'));`);
 }
 
 
 
 
-INSERT INTO Dogs (name, size, owner_id)
-VALUES
-  ('Max', 'medium', (SELECT id FROM Users WHERE username='alice123')),
-  ('Bella', 'small', (SELECT id FROM Users WHERE username='carol123')),
-  ('largedog', 'large', (SELECT id FROM Users WHERE username='puranowner')),
-  ('mediumdog', 'medium', (SELECT id FROM Users WHERE username='carol123')),
-  ('smalldog', 'small', (SELECT id FROM Users WHERE username='alice123'));
+
 
 
 INSERT INTO WalkRequests (dog_id, datetime, duration, location, status)
