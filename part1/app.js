@@ -8,7 +8,7 @@ const dbConfig = {
     user: 'root',
     password: '123456',
     database: 'dogwalks'
-}
+};
 
 async function insertTestData(connection) {
     await connection.query(`INSERT INTO Users (username, email, password_hash, role)
