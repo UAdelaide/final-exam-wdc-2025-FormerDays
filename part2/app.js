@@ -20,5 +20,14 @@ module.exports = app;
 
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
-    const [rows] = await debug.quiry()
+    const [rows] = await debug.quiry(
+        'SELECT * FROM users WHERE username = ? AND password = ?',
+        [username, password]
+    );
+    if (rows.length > 0) {
+        res
+        res.status(200).json({ message: 'Login successful', user: rows[0] });
+    } else {
+        res.status(401).json({ message: 'Invalid username or password' });
+    }
 }
