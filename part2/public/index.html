@@ -27,7 +27,7 @@
       }
     }).mount('#app');
 
-    // Identify the input username and password
+    // 13Identify the input username and password
     document.getElementById('loginForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const username = document.getElementById('username').value;
@@ -42,7 +42,7 @@
         body: JSON.stringify({ username, password })
       });
 
-      // Jump to the corresponding interface based 
+      // Jump to the corresponding interface based on the user's role
       if (res.ok) {
         const data = await res.json();
         if (data.role === 'owner') {
