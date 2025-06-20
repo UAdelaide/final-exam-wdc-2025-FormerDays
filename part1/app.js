@@ -25,6 +25,7 @@ async function insertTestData(connection) {
         ('largedog', 'large', (SELECT id FROM Users WHERE username='puranowner')),
         ('mediumdog', 'medium', (SELECT id FROM Users WHERE username='carol123')),
         ('smalldog', 'small', (SELECT id FROM Users WHERE username='alice123'));`);
+    await
 }
 
 
