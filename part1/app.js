@@ -18,7 +18,7 @@ async function insertTestData(connection) {
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('puranowner', 'po@example.com', 'hashedpo', 'owner'),
         ('puranwalker', 'pw@example.com', 'hashedpw', 'walker');`);
-    await connection,query(`
+    await connection,query(``);
 }
 
 
