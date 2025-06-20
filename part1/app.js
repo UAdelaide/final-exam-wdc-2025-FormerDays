@@ -75,7 +75,8 @@ async function startServer() {
             const [rows] = await connection.query(`
                 SELECT u.username AS walker_username,
                 COUNT(r.rating_id) AS total_ratings,
-                
+                AVG(r.rating) AS average_rating,
+                COUNT(CASE WHEN wr.status = 'accepted' THEN 1 END) AS accepted_walks,
             `);
             res.json(rows);
         } catch (err) {
