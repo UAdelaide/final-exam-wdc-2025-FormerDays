@@ -41,4 +41,12 @@ async function startServer() {
     await insertTestData(connection);
 
     app.get('/api/dogs', async (req, res) => {
+        try {
+            const [rows] = await connection.query('SELECT * FROM Dogs');
+            res.json(rows);
+        } catch (err) {
+            console.error('Error fetching dogs:', err);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    }
 }
