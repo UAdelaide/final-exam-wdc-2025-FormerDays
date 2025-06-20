@@ -56,7 +56,7 @@ app.post('/api/logout', (req, res) => {
 });
 
 // 15: Choose your dog
-app.get('/api/mydogs', (req, res) => {
+app.get('/api/mydogs', async (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'You must logged in' });
     }
