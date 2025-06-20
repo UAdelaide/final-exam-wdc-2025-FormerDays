@@ -20,18 +20,18 @@ async function insertTestData(connection) {
         ('puranwalker', 'pw@example.com', 'hashedpw', 'walker');`);
     await connection.query(`INSERT INTO Dogs (name, size, owner_id)
         VALUES
-        ('Max', 'medium', (SELECT id FROM Users WHERE username='alice123')),
+        ('Max', 'medium', (SELECT user_id FROM Users WHERE username='alice123')),
         ('Bella', 'small', (SELECT id FROM Users WHERE username='carol123')),
         ('largedog', 'large', (SELECT id FROM Users WHERE username='puranowner')),
         ('mediumdog', 'medium', (SELECT id FROM Users WHERE username='carol123')),
         ('smalldog', 'small', (SELECT id FROM Users WHERE username='alice123'));`);
     await connection.query(`INSERT INTO WalkRequests (dog_id, datetime, duration, location, status)
         VALUES
-        ((SELECT id FROM Dogs WHERE name='Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
-        ((SELECT id FROM Dogs WHERE name='Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
-        ((SELECT id FROM Dogs WHERE name='largedog'), '2025-06-10 10:00:00', 60, 'LPark', 'pending'),
-        ((SELECT id FROM Dogs WHERE name='mediumdog'), '2025-06-11 11:30:00', 40, 'MStreet', 'accepted'),
-        ((SELECT id FROM Dogs WHERE name='smalldog'), '2025-06-12 14:00:00', 10, 'SAvenue', 'rejected');`);
+        ((SELECT dog_id FROM Dogs WHERE name='Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name='Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name='largedog'), '2025-06-10 10:00:00', 60, 'LPark', 'pending'),
+        ((SELECT dog_id FROM Dogs WHERE name='mediumdog'), '2025-06-11 11:30:00', 40, 'MStreet', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name='smalldog'), '2025-06-12 14:00:00', 10, 'SAvenue', 'rejected');`);
 }
 
 async function startServer() {
