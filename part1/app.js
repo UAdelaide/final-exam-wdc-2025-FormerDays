@@ -90,5 +90,9 @@ async function startServer() {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     });
-    app
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
 }
+
+startServer
