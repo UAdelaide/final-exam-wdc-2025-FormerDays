@@ -115,20 +115,6 @@
     }
     // 16: Call the function to get the current user when the page loads
     window.addEventListener('load', getCurrentUser);
-
-    async function applyToWalk(requestId) {
-      const res = await fetch(`/api/walks/apply`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ request_id, walker_id: currentUser.id })
-      });
-      const result = await res.json();
-      if (res.ok){
-        alert('Application successful: ' + result.message);
-      } else {
-        alert('Application failed: ' + result.error);
-      }
-    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
