@@ -60,6 +60,10 @@
 
         // 16: Apply to a walk request
         async function applyToWalk(requestId) {
+          if (!currentUser.value) {
+            alert('You must be logged in to apply for a walk.');
+            return;
+          }
           const res = await fetch(`/api/walks/apply`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
