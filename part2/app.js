@@ -80,5 +80,14 @@ app.get('/api/users/me', (req, res) => {
 });
 
 // 17: Get all dogs from the database
+app.get('/api/dogs', async (req, res) => {
+    try {
+        const [rows] = await db.query('SELECT * FROM Dogs');
+        res.json(rows);
+    } catch (err) {
+        console.error('Error fetching dogs', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 // Export the app instead of listening here
 module.exports = app;
