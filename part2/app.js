@@ -72,7 +72,13 @@ app.get('/api/mydogs', async (req, res) => {
 });
 
 // 16: get the current user id
-app.get('/api/users/me'
+app.get('/api/users/me', (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ error: 'You must logged in' });
+    }
+
+    res.json(req.session.user);
+});
 
 // Export the app instead of listening here
 module.exports = app;
