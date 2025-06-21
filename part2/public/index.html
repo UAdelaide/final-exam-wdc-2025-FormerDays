@@ -98,7 +98,17 @@
         }
       }
 
-      // 17: lo
+      // 17: Load random dog image
+      const loadRandomDogImage = async () => {
+        const res = await fetch('https://dog.ceo/api/breeds/image/random');
+        if (res.ok) {
+          const data = await res.json();
+          return data.message;
+        } else {
+          console.error('Failed to load random dog image');
+          return '';
+        }
+      }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
