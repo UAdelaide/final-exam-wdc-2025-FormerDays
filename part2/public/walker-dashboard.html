@@ -94,7 +94,7 @@
 
         onMounted(async () => {
           await getCurrentUser(); // 16: Get current user on mount
-          
+          await loadWalkRequests(); // 16: Load walk requests when the component mounts
         });
 
         return {
