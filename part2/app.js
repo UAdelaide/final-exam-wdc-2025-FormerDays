@@ -71,7 +71,7 @@ app.get('/api/mydogs', async (req, res) => {
     }
 });
 
-// 16: get the current user id
+// 16: Get the current user's id
 app.get('/api/users/me', (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'You must logged in' });
