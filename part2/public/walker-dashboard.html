@@ -88,6 +88,7 @@
           if (res.ok){
             message.value = 'Application subbmitted';
             error.value = '';
+            await loadWalkRequests(); // Reload walk requests after applying
           } else {
             alert('Application failed: ' + result.error);
           }
