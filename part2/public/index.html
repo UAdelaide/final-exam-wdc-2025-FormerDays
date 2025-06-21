@@ -99,7 +99,7 @@
       }
 
       // 17: Load random dog image
-      const loadRandomDogImage = async () => {
+      const loadRandomDog = async () => {
         const res = await fetch('https://dog.ceo/api/breeds/image/random');
         const data = await res.json();
         randomDogImage.value = data.message;
@@ -108,7 +108,7 @@
       // 17: onMounted lifecycle hook to load dogs and random dog image
       onMounted(() => {
         loadDogs();
-        loadRandomDogImage();
+        loadRandomDog();
       });
   </script>
 
