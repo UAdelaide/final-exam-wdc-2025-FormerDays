@@ -64,7 +64,7 @@
             alert('You must be logged in to apply for a walk.');
             return;
           }
-          const res = await fetch(`/api/walks/apply`, {
+          const res = await fetch(`/api/walks/${requestId}/apply`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ request_id, walker_id: currentUser.user_id })
