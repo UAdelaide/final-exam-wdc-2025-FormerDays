@@ -92,8 +92,9 @@
           }
         }
 
-        onMounted(() => {
-          loadWalkRequests();
+        onMounted(async () => {
+          await getCurrentUser(); // 16: Get current user on mount
+          
         });
 
         return {
