@@ -72,7 +72,7 @@ app.get('/api/mydogs', async (req, res) => {
 });
 
 // 16: get the current user id
-app.get('/api/')
+app.get('/api/users/me'
 
 // Export the app instead of listening here
 module.exports = app;
