@@ -107,7 +107,7 @@
         credentials: 'include'
       });
       if (res.ok) {
-        currentUser = await res.json();
+        currentUser.value = await res.json();
         console.log('Current user:', currentUser);
       } else {
         alert('Not logged in or session expired');
