@@ -107,6 +107,7 @@
       });
       if (res.ok) {
         currentUser = await res.json();
+        con
       } else {
         alert('Not logged in or session expired');
         window.location.href = 'index.html';
