@@ -49,19 +49,18 @@
         const currentUser = ref(null); // 16: Store current user info
 
         // 16: Get the current user's ID
-    let currentUser = null;
-    async function getCurrentUser() {
-      const res = await fetch('/api/users/me', {
-        credentials: 'include'
-      });
-      if (res.ok) {
-        currentUser.value = await res.json();
-        console.log('Current user:', currentUser.value);
-      } else {
-        alert('Not logged in or session expired');
-        window.location.href = 'index.html';
-      }
-    }
+        async function getCurrentUser() {
+          const res = await fetch('/api/users/me', {
+            credentials: 'include'
+          });
+          if (res.ok) {
+            currentUser.value = await res.json();
+            console.log('Current user:', currentUser.value);
+          } else {
+            alert('Not logged in or session expired');
+            window.location.href = 'index.html';
+          }
+        }
 
         async function loadWalkRequests() {
           try {
