@@ -76,7 +76,6 @@ app.get('/api/users/me', (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'You must logged in' });
     }
-
     res.json(req.session.user);
 });
 
