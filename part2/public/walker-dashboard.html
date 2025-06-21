@@ -86,7 +86,8 @@
           });
           const result = await res.json();
           if (res.ok){
-            message.value = 'Application successful;'';
+            message.value = 'Application subbmitted';
+            error.value = '';
           } else {
             alert('Application failed: ' + result.error);
           }
