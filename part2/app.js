@@ -71,7 +71,7 @@ app.get('/api/mydogs', async (req, res) => {
     }
 });
 
-// 16: 
+// 16: get the current user id
 
 // Export the app instead of listening here
 module.exports = app;
