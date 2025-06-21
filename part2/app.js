@@ -79,5 +79,6 @@ app.get('/api/users/me', (req, res) => {
     res.json(req.session.user);
 });
 
+// 17: 
 // Export the app instead of listening here
 module.exports = app;
