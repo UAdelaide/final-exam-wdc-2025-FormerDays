@@ -57,20 +57,20 @@
           }
         }
 
-        //
+        // 16: Apply to a walk request
         async function applyToWalk(requestId) {
-      const res = await fetch(`/api/walks/apply`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ request_id, walker_id: currentUser.id })
-      });
-      const result = await res.json();
-      if (res.ok){
-        alert('Application successful: ' + result.message);
-      } else {
-        alert('Application failed: ' + result.error);
-      }
-    }
+          const res = await fetch(`/api/walks/apply`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ request_id, walker_id: currentUser.id })
+          });
+          const result = await res.json();
+          if (res.ok){
+            alert('Application successful: ' + result.message);
+          } else {
+            alert('Application failed: ' + result.error);
+          }
+        }
 
         onMounted(() => {
           loadWalkRequests();
