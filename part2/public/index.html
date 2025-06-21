@@ -93,6 +93,8 @@
         });
         if (res.ok) {
           dogs.value = await res.json();
+        } else {
+          console.error('Failed to load dogs:');
         }
       }
   </script>
