@@ -69,7 +69,6 @@
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
             body: JSON.stringify({ walker_id: currentUser.value.user_id })
-            body: JSON.stringify({ request_id, walker_id: currentUser.user_id })
           });
           const result = await res.json();
           if (res.ok){
