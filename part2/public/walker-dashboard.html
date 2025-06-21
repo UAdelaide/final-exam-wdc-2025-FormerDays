@@ -60,7 +60,7 @@
 
         // 16: Apply to a walk request
         async function applyToWalk(requestId) {
-          if (!currentUser.value) {
+          if (!currentUser.value || !currentUser.value.user_id) {
             alert('You must be logged in to apply for a walk.');
             return;
           }
