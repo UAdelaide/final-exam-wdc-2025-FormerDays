@@ -113,7 +113,8 @@
       if (res.ok) {
         currentUser = await res.json();
       } else {
-        alert("")
+        alert('Not logged in or session expired');
+        window.location.href = 'index.html';
         console.error('Failed to fetch current user');
       }
     }
