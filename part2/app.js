@@ -79,6 +79,6 @@ app.get('/api/users/me', (req, res) => {
     res.json(req.session.user);
 });
 
-// 17: 
+// 17: Get all dogs from the database
 // Export the app instead of listening here
 module.exports = app;
