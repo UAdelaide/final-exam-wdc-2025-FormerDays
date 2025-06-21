@@ -101,13 +101,8 @@
       // 17: Load random dog image
       const loadRandomDogImage = async () => {
         const res = await fetch('https://dog.ceo/api/breeds/image/random');
-        if (res.ok) {
-          const data = await res.json();
-          return data.message;
-        } else {
-          console.error('Failed to load random dog image');
-          return '';
-        }
+        const data = await res.json();
+        randomDogImage
       }
   </script>
 
