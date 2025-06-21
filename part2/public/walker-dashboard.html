@@ -57,25 +57,20 @@
           }
         }
 
-        // 
+        //
         async function applyToWalk(requestId) {
-          try {
-            const res = await fetch(`/api/walks/${requestId}/apply`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user })
-            });
-            const result = await res.json();
-
-            if (!res.ok) throw new Error(result.error || 'Application failed');
-            message.value = result.message;
-            error.value = '';
-            await loadWalkRequests();
-          } catch (err) {
-            error.value = err.message;
-            message.value = '';
-          }
-        }
+      const res = await fetch(`/api/walks/apply`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ request_id, walker_id: currentUser.id })
+      });
+      const result = await res.json();
+      if (res.ok){
+        alert('Application successful: ' + result.message);
+      } else {
+        alert('Application failed: ' + result.error);
+      }
+    }
 
         onMounted(() => {
           loadWalkRequests();
