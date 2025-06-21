@@ -107,7 +107,7 @@
     // 16: Get the current user's ID
     let currentUser = null;
     async function getCurrentUser() {
-      const res = await fetch('/api/current_user', {
+      const res = await fetch('/api/users/me', {
         credentials: 'include'
       });
       if (res.ok) {
