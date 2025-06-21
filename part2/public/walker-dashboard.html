@@ -127,7 +127,9 @@
         body: JSON.stringify({ request_id, walker_id: currentUser.id })
       });
       const result = await res.json();
-      if 
+      if (res.ok){
+        alert('Application successful: ' + result.message);
+      } else
     }
   </script>
 
