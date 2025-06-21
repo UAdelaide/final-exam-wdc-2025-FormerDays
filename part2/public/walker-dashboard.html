@@ -91,7 +91,7 @@
             await loadWalkRequests(); // Reload walk requests after applying
           } else {
             message.value = '';
-            alert('Application failed: ' + result.error);
+            error.value = result.error || 'Failed to apply for the walk';
           }
         }
 
