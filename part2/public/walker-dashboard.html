@@ -121,8 +121,11 @@
     window.addEventListener('load', getCurrentUser);
 
     async function applyToWalk(requestId) {
-
-      
+      const res = await fetch(`/api/walks/apply`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ walker_id: currentUser.id })
+      });
     }
   </script>
 
