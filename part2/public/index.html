@@ -86,7 +86,25 @@
         }
       });
 
-      // 
+      // 17: Load all dogs from the database
+      async function loadDogs() {
+        try {
+          const res = await fetch('/api/dogs');
+          if (!res.ok) throw new Error('Failed to load dogs');
+          const dogs = await res.json();
+          document.getElementById('dogTableBody').innerHTML = dogs.map(dog => `
+            <tr>
+              <td>${dog.dog_id}</td>
+              <td>${dog.name}</td>
+              <td>${dog.size}</td>
+              <td>${dog.owner_id}</td>
+              <td><img src="${dog.photo_url}" alt="Dog Photo" class="img-thumbnail" style="width: 100px;"></td>
+            </tr>
+          `).join('');
+        } catch (err) {
+          console.error(err);
+        }
+      }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
